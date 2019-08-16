@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from "react";
-import XiaojiejieItem from "./XiaojiejieItem";
-import Boss from "../boss/Boss";
-import axios from "axios";
+import React, { Component, Fragment } from 'react'
+import XiaojiejieItem from './XiaojiejieItem'
+import Boss from '../boss/Boss'
+import axios from 'axios'
 
 export default class Xiaojiejie extends Component {
   //js的构造函数，由于其他任何函数执行
   constructor(props) {
-    super(props); //调用父类的构造函数，固定写法
+    super(props) //调用父类的构造函数，固定写法
     this.state = {
-      inputValue: "", // input中的值
+      inputValue: '', // input中的值
       list: [] //服务列表
-    };
+    }
   }
 
   render() {
@@ -32,45 +32,45 @@ export default class Xiaojiejie extends Component {
                 content={item}
                 deleteItem={this.deleteItem.bind(this)}
               />
-            );
+            )
           })}
         </ul>
         <Boss />
       </Fragment>
-    );
+    )
   }
 
   componentDidMount() {
     axios
       .get(
-        "https://www.easy-mock.com/mock/5d56633cbf6a0d2f8f419886/study-react/service-list"
+        'https://www.easy-mock.com/mock/5d56633cbf6a0d2f8f419886/study-react/service-list'
       )
       .then(res => {
-        console.log("axios 获取数据成功 => " + JSON.stringify(res));
-        this.setState({ list: res.data });
+        console.log('axios 获取数据成功 => ' + JSON.stringify(res))
+        this.setState({ list: res.data })
       })
       .catch(error => {
-        console.log("axios 获取数据失败 => " + error);
-      });
+        console.log('axios 获取数据失败 => ' + error)
+      })
   }
 
   inputChange(e) {
-    console.log(e.target.value);
-    this.setState({ inputValue: e.target.value });
+    console.log(e.target.value)
+    this.setState({ inputValue: e.target.value })
   }
 
   addList() {
-    console.log(...this.state.list);
+    console.log(...this.state.list)
     this.setState({
       list: [...this.state.list, this.state.inputValue]
-    });
+    })
   }
 
   deleteItem(index) {
-    let list = this.state.list;
-    list.splice(index, 1);
+    let list = this.state.list
+    list.splice(index, 1)
     this.setState({
       list: list
-    });
+    })
   }
 }

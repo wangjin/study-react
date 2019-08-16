@@ -1,8 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
 
-import Xiaojiejie from "../xiaojiejie/Xiaojiejie";
+import Xiaojiejie from '../xiaojiejie/Xiaojiejie'
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
       </header>
       <Xiaojiejie />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
