@@ -23,6 +23,7 @@ class XiaojiejieItem extends Component {
   }
 }
 
+// 校验props类型
 XiaojiejieItem.propTypes = {
   index: PropTypes.number.isRequired,
   content: PropTypes.string.isRequired,
